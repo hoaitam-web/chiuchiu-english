@@ -1,35 +1,120 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Learn English — Australian Meetings</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChiuChiu English</title>
 <style>
-:root{--bg:#f5f7fb;--ink:#172033;--muted:#697386;--card:#fff;--line:#e5e9f0;--accent:#405a9a;--accent2:#edf2ff}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
-a{text-decoration:none;color:inherit}.container{max-width:1050px;margin:auto;padding:24px 18px 60px}
-.hero{background:linear-gradient(135deg,#172033,#405a9a);color:white;border-radius:26px;padding:30px;box-shadow:0 14px 40px #17203320}
-.kicker{font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.72}h1{font-size:34px;margin:7px 0}.hero p{opacity:.86;line-height:1.6;max-width:760px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}.card,.phrase,.exercise,.note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 5px 18px #17203309}
-.card:hover{transform:translateY(-2px)}.icon{font-size:30px}.badge{display:inline-block;font-size:11px;font-weight:750;background:var(--accent2);color:#405a9a;padding:5px 8px;border-radius:8px;margin-top:10px}
-.card h2{font-size:20px;margin:9px 0 5px}.card p,.sub{font-size:13px;color:var(--muted);line-height:1.55}.btn{display:inline-block;background:var(--ink);color:#fff;border-radius:10px;padding:9px 12px;font-size:12px;font-weight:750}
-.note{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.6}.topnav{display:flex;justify-content:space-between;margin-bottom:14px;font-size:13px}.topnav a{color:#405a9a;font-weight:750}
-section{margin-top:24px}.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}.section-title h2{margin:0;font-size:22px}
-.words{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.word{font-size:19px;font-weight:800}.pos{font-size:10px;color:#667085;background:#eef1f5;padding:3px 7px;border-radius:7px;margin-left:6px}
-.meaning{font-size:13px;font-weight:650;margin:5px 0;color:#333d50}.example{font-size:13px;line-height:1.55;color:#4d596c}
-.audio{margin-top:10px;border:0;cursor:pointer;background:var(--accent2);color:#3155b5;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:750}
-.exercise label{display:block;margin:10px 0;font-size:13px}.exercise select{padding:8px;border:1px solid var(--line);border-radius:9px}.result{font-weight:800;margin-top:12px}
-@media(max-width:760px){.grid,.words{grid-template-columns:1fr}.hero{padding:24px}h1{font-size:28px}}
-</style></head><body><div class="container">
-<div class="hero">
-<div class="kicker">Tâm's English Practice</div>
-<h1>🇦🇺 Learn English for Australian Meetings</h1>
-<p>Học tiếng Anh theo từng buổi, tập trung vào vocabulary, useful phrases, pronunciation và cách nói tự nhiên trong meeting.</p>
-<div class="grid">
-<div class="card"><div class="icon">📘</div><span class="badge">LESSON 1</span><h2>Greetings & Introductions</h2><p>Buổi 1 hiện tại của Tâm: chào hỏi, giới thiệu và các cách nói cơ bản trong meeting.</p><a class="btn" href="lesson1.html">HỌC BÀI 1 →</a></div>
-<div class="card"><div class="icon">📗</div><span class="badge">LESSON 2</span><h2>Joining the Discussion</h2><p>Tham gia trao đổi, đưa ý kiến và xin clarification một cách tự nhiên.</p><a class="btn" href="lesson2.html">HỌC BÀI 2 →</a></div>
-<div class="card"><div class="icon">📙</div><span class="badge">LESSON 3</span><h2>Agreeing & Next Steps</h2><p>Đồng ý, nhận action items và chốt việc sau meeting.</p><a class="btn" href="lesson3.html">HỌC BÀI 3 →</a></div>
-</div></div>
-<div class="note">💡 <b>Cấu trúc mới:</b> <b>index.html</b> sẽ là trang chủ. Mỗi lesson là một file riêng. Sau này chỉ cần thêm Lesson 4, 5, 6... vào đây.</div>
-</div>
-<script>
-function speak(text){if(!("speechSynthesis" in window)){alert("Speech synthesis is not supported.");return;}
-speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-AU";u.rate=.9;speechSynthesis.speak(u);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#191d3a;color:#18203a}
+.page{width:min(1400px,calc(100% - 40px));min-height:calc(100vh - 40px);margin:20px auto;background:#fff;overflow:hidden}
+header{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 6%}
+.logo{font-size:20px;font-weight:800;display:flex;gap:12px;align-items:center}.logo i{width:22px;height:22px;background:#8db3f5;border-radius:50%}
+nav{display:flex;gap:34px;align-items:center}nav a{color:#18203a;text-decoration:none}nav a:hover{color:#2773c7}
+.start-wrap{position:relative}.start-btn{border:2px solid #8eb5f5;border-radius:28px;padding:11px 21px;font-weight:700;background:#fff;color:#18203a;cursor:pointer;font-size:15px}
+.start-menu{display:none;position:absolute;right:0;top:48px;width:230px;background:#fff;border:1px solid #e2e7f0;border-radius:16px;box-shadow:0 15px 35px #18203a25;padding:8px;z-index:20}
+.start-wrap:hover .start-menu,.start-wrap:focus-within .start-menu{display:block}
+.start-menu a{display:block;padding:11px 13px;border-radius:10px;font-size:14px}.start-menu a:hover{background:#eef5ff;color:#2773c7}
 
-</script></body></html>
+.hero{min-height:610px;display:grid;grid-template-columns:40% 60%;align-items:center;padding:20px 5% 60px}
+.copy{padding-left:2%;z-index:2}.flag{font-size:55px;margin-bottom:15px}.eyebrow{font-size:13px;color:#2773c7;font-weight:800;text-transform:uppercase;letter-spacing:1.5px}
+h1{font-size:clamp(60px,7vw,90px);line-height:.92;letter-spacing:-4px;margin:12px 0 25px}h1 .pink{color:#f34e68}h1 .blue{color:#2773c7}
+.intro{max-width:440px;color:#596278;font-size:16px;line-height:1.8;margin-bottom:28px}
+.cta{display:inline-block;background:#f65369;color:#fff;text-decoration:none;font-weight:800;padding:15px 27px;border-radius:30px;box-shadow:0 12px 25px #f6536930}
+
+.visual{min-height:530px;position:relative;display:flex;align-items:center;justify-content:center}
+.blob{position:absolute;width:620px;height:430px;background:#dce9fc;border-radius:48% 52% 43% 57%;transform:rotate(-8deg);right:3%;top:65px}
+.dot{position:absolute;border-radius:50%;background:#2471c4}.d1{width:18px;height:18px;right:8%;top:90px}.d2{width:11px;height:11px;left:8%;top:200px}.d3{width:20px;height:20px;left:24%;bottom:65px}
+.x{position:absolute;color:#f34e68;font-size:28px}.x1{right:15%;top:120px}.x2{left:3%;bottom:150px}
+
+.screen{position:relative;z-index:2;width:min(650px,92%);height:390px;background:#fff;border:10px solid #171717;border-radius:48px;box-shadow:0 25px 50px #18203a18;overflow:hidden}
+.screen-top{height:58px;background:#1e263d;color:white;padding:0 25px;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:13px}
+.screen-logo{display:flex;gap:8px;align-items:center}.screen-logo i{width:12px;height:12px;background:#8db3f5;border-radius:50%}
+.screen-body{height:calc(100% - 58px);background:linear-gradient(135deg,#edf4ff,#dce9fc);display:flex;align-items:center;justify-content:center;padding:25px}
+.private-card{width:82%;background:#fff;border-radius:24px;padding:30px 28px;box-shadow:0 18px 40px #1a3a6e18;text-align:left}
+.private-icon{font-size:34px;margin-bottom:14px}
+.private-card h2{font-size:27px;line-height:1.2;margin-bottom:10px;color:#18203a}
+.private-card h2 span{color:#2773c7}
+.private-card p{font-size:15px;line-height:1.7;color:#697286}
+.private-line{width:75px;height:5px;background:#f65369;border-radius:10px;margin-top:18px}
+
+.character{position:absolute;right:-15px;bottom:-65px;width:220px;height:315px;z-index:4}
+.head{position:absolute;width:140px;height:140px;border:5px solid #171717;border-radius:48%;background:#fff;right:20px;top:0}
+.hair{position:absolute;width:153px;height:94px;background:#191919;border-radius:55% 55% 38% 42%;right:13px;top:-10px}.hair:after{content:"";position:absolute;width:43px;height:95px;background:#191919;border-radius:50%;left:-8px;top:18px}
+.eye{position:absolute;width:9px;height:13px;background:#171717;border-radius:50%;top:68px}.eye.a{left:42px}.eye.b{right:42px}.mouth{position:absolute;width:24px;height:12px;border-bottom:3px solid #171717;border-radius:50%;left:57px;top:88px}
+.body{position:absolute;width:132px;height:180px;background:#fff;border:5px solid #171717;border-bottom:0;border-radius:35px 35px 0 0;right:24px;top:128px}
+.book{position:absolute;width:72px;height:98px;background:#8db3f5;border:4px solid #171717;border-radius:8px;right:42px;top:172px;transform:rotate(-8deg)}
+.arm{position:absolute;width:112px;height:29px;background:#fff;border:5px solid #171717;border-radius:30px;right:102px;top:177px;transform:rotate(-28deg)}
+
+.features{padding:0 6% 45px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature{background:#f7f9fd;border:1px solid #e7ecf5;border-radius:20px;padding:23px}.icon{font-size:24px;margin-bottom:12px}.feature h3{margin-bottom:7px}.feature p{font-size:14px;line-height:1.6;color:#697286}
+footer{text-align:center;padding:0 20px 30px;color:#8a93a5;font-size:13px}
+
+@media(max-width:900px){
+.page{width:calc(100% - 20px);margin:10px auto}header{padding:0 5%;height:75px}
+nav a:not(.lessons-link),nav .start-wrap{display:none}
+.hero{grid-template-columns:1fr;text-align:center;padding-top:35px}.intro{margin-left:auto;margin-right:auto}
+.visual{min-height:480px;margin-top:15px}.blob{width:90%;height:350px;right:5%;top:55px}
+.screen{height:330px}.features{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+h1{font-size:55px}.screen{width:95%;height:285px;border-width:7px;border-radius:30px}
+.screen-top{height:44px;padding:0 15px;font-size:11px}.screen-body{height:calc(100% - 44px);padding:15px}
+.private-card{width:90%;padding:22px}.private-card h2{font-size:21px}.private-card p{font-size:13px}
+.character{transform:scale(.58);transform-origin:bottom right;right:-30px;bottom:-75px}.blob{height:275px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<div class="logo"><i></i> ChiuChiu English.</div>
+<nav>
+<a href="index.html">Home</a>
+<a class="lessons-link" href="lessons.html">Lessons</a>
+<div class="start-wrap">
+<button class="start-btn">Start Learning ▾</button>
+<div class="start-menu">
+<a href="lesson1.html">Lesson 1 — Meeting Basics</a>
+<a href="lesson2.html">Lesson 2 — Joining the Discussion</a>
+<a href="lesson3.html">Lesson 3 — Agreeing & Next Steps</a>
+</div>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div class="copy">
+<div class="flag">🇦🇺</div>
+<div class="eyebrow">English for Australian meetings</div>
+<h1><span class="pink">Learn</span><br><span class="blue">English.</span></h1>
+<p class="intro">Learn practical English through real workplace conversations. Build vocabulary, listening and speaking skills you can actually use in Australian meetings.</p>
+<a class="cta" href="lesson1.html">START LEARNING →</a>
+</div>
+
+<div class="visual">
+<div class="blob"></div><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="x x1">×</span><span class="x x2">×</span>
+<div class="screen">
+<div class="screen-top"><div class="screen-logo"><i></i> ChiuChiu English</div><span>EN-AU 🇦🇺</span></div>
+<div class="screen-body">
+<div class="private-card">
+<div class="private-icon">🔒📚</div>
+<h2>A private space for <span>ChiuChiu</span> to learn English.</h2>
+<p>Real meeting English, useful vocabulary, listening practice and speaking skills — all in one personal learning space.</p>
+<div class="private-line"></div>
+</div>
+</div>
+</div>
+<div class="character"><div class="hair"></div><div class="head"><span class="eye a"></span><span class="eye b"></span><span class="mouth"></span></div><div class="body"></div><div class="book"></div><div class="arm"></div></div>
+</div>
+</section>
+
+<section class="features">
+<div class="feature"><div class="icon">📚</div><h3>Vocabulary</h3><p>Useful words and phrases taken from real workplace meetings.</p></div>
+<div class="feature"><div class="icon">🎧</div><h3>Listening</h3><p>Listen to natural Australian English with an EN-AU voice.</p></div>
+<div class="feature"><div class="icon">💬</div><h3>Speaking</h3><p>Practise meeting phrases and natural conversation flow.</p></div>
+</section>
+<footer>Real phrases • Real meetings • Real English</footer>
+</div>
+</body>
+</html>
