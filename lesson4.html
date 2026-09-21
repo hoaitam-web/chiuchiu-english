@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lesson 04 • ChiuChiu English</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#191d3a;color:#18203a}
+.page{width:min(1000px,calc(100% - 40px));min-height:100vh;margin:20px auto;background:#fff;padding-bottom:60px}
+header{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid #edf0f5}
+.logo{font-size:20px;font-weight:800;display:flex;gap:12px;align-items:center}
+.logo i{width:22px;height:22px;background:#8db3f5;border-radius:50%}
+.back{color:#2773c7;text-decoration:none;font-weight:700}
+main{padding:60px 8%}
+.eyebrow{font-size:13px;color:#2773c7;font-weight:800;text-transform:uppercase;letter-spacing:1.5px}
+h1{font-size:58px;letter-spacing:-2px;margin:10px 0 12px}
+.subtitle{color:#697286;font-size:17px;line-height:1.7;margin-bottom:35px}
+.lesson-box{background:#f7f9fd;border:1px solid #e4e9f2;border-radius:25px;padding:35px}
+.lesson-box h2{font-size:25px;margin-bottom:20px}
+.phrase{background:#fff;border:1px solid #e3e8f1;border-radius:15px;padding:17px;margin:12px 0;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+button{border:0;background:#2773c7;color:white;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:16px}
+.home-btn{display:inline-block;margin-top:28px;background:#f65369;color:#fff;text-decoration:none;font-weight:800;padding:13px 23px;border-radius:25px}
+@media(max-width:600px){.page{width:calc(100% - 20px);margin:10px auto}header{height:70px;padding:0 5%}main{padding:45px 7%}h1{font-size:45px}.lesson-box{padding:22px}.phrase{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<div class="logo"><i></i> ChiuChiu English.</div>
+<a class="back" href="lessons.html">← Lessons</a>
+</header>
+
+<main>
+<div class="eyebrow">Lesson 04</div>
+<h1>Speaking Up</h1>
+<p class="subtitle">A quick test lesson for checking that a new lesson page works correctly on GitHub Pages.</p>
+
+<div class="lesson-box">
+<h2>Useful Meeting Phrases</h2>
+
+<div class="phrase">
+<span>“I’d like to add something here.”</span>
+<button onclick="speak('I would like to add something here.')">▶</button>
+</div>
+
+<div class="phrase">
+<span>“Can I jump in for a second?”</span>
+<button onclick="speak('Can I jump in for a second?')">▶</button>
+</div>
+
+<div class="phrase">
+<span>“That makes sense to me.”</span>
+<button onclick="speak('That makes sense to me.')">▶</button>
+</div>
+
+<div class="phrase">
+<span>“Let’s come back to this later.”</span>
+<button onclick="speak('Let’s come back to this later.')">▶</button>
+</div>
+</div>
+
+<a class="home-btn" href="lessons.html">BACK TO LESSONS →</a>
+</main>
+</div>
+
+<script>
+function speak(text){
+if(!('speechSynthesis' in window)) return;
+speechSynthesis.cancel();
+const u=new SpeechSynthesisUtterance(text);
+u.lang='en-AU';
+u.rate=.92;
+speechSynthesis.speak(u);
+}
+</script>
+</body>
+</html>
