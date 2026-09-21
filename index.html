@@ -74,10 +74,8 @@ h1{font-size:55px}.screen{width:95%;height:285px;border-width:7px;border-radius:
 <a class="lessons-link" href="lessons.html">Lessons</a>
 <div class="start-wrap">
 <button class="start-btn">Start Learning ▾</button>
-<div class="start-menu">
-<a href="lesson1.html">Lesson 1 — Meeting Basics</a>
-<a href="lesson2.html">Lesson 2 — Joining the Discussion</a>
-<a href="lesson3.html">Lesson 3 — Agreeing & Next Steps</a>
+<div class="start-menu" id="startMenu">
+<div class="menu-loading">Loading lessons...</div>
 </div>
 </div>
 </nav>
@@ -116,5 +114,50 @@ h1{font-size:55px}.screen{width:95%;height:285px;border-width:7px;border-radius:
 </section>
 <footer>Real phrases • Real meetings • Real English</footer>
 </div>
+
+<script>
+/*
+  Automatically builds the Start Learning menu from lessons.html.
+  From now on, add a new lesson card to lessons.html and the homepage
+  dropdown will pick it up automatically.
+*/
+async function loadLessonMenu(){
+  const menu = document.getElementById('startMenu');
+  if(!menu) return;
+
+  try{
+    const response = await fetch('lessons.html', {cache:'no-store'});
+    if(!response.ok) throw new Error('Could not load lessons.html');
+
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const cards = doc.querySelectorAll('.card');
+
+    menu.innerHTML = '';
+
+    cards.forEach(card => {
+      const link = card.querySelector('a[href]');
+      const title = card.querySelector('h2');
+
+      if(link && title){
+        const a = document.createElement('a');
+        a.href = link.getAttribute('href');
+        a.textContent = title.textContent.trim();
+        menu.appendChild(a);
+      }
+    });
+
+    if(!cards.length){
+      menu.innerHTML = '<div class="menu-loading">No lessons yet.</div>';
+    }
+  }catch(error){
+    menu.innerHTML = '<div class="menu-loading">Unable to load lessons.</div>';
+    console.error(error);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadLessonMenu);
+</script>
+
 </body>
 </html>
