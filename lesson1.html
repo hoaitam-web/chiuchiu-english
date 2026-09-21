@@ -42,6 +42,25 @@ h2{margin:0;font-size:23px}.sub{font-size:13px;color:#6c7485}
 .callout{background:#fff9e8;border:1px solid #f2dfaa;border-radius:17px;padding:16px;font-size:13px;line-height:1.6}
 .callout b{color:#745600}.footer{text-align:center;color:#8a92a1;font-size:12px;margin-top:35px}
 @media(max-width:720px){.words,.phrases{grid-template-columns:1fr}.goal,.steps{grid-template-columns:1fr 1fr}h1{font-size:28px}}
+
+/* ===== 10-second vocabulary game ===== */
+.game{background:linear-gradient(135deg,#f7faff,#eef5ff);border:1px solid #dfe8f6;border-radius:22px;padding:24px;margin-top:8px}
+.game-intro{color:#697386;font-size:14px;line-height:1.6;margin:6px 0 20px}
+.game-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.game-progress{font-weight:750;color:#2773c7}.timer{font-size:28px;font-weight:850;color:#f65369;min-width:70px;text-align:right}
+.game-question{background:#fff;border:1px solid #e1e7f0;border-radius:18px;padding:28px;text-align:center;margin-bottom:16px}
+.game-label{font-size:12px;color:#7b8496;text-transform:uppercase;letter-spacing:1.2px;font-weight:800;margin-bottom:10px}
+.game-vn{font-size:34px;font-weight:850;letter-spacing:-1px;line-height:1.25;margin-bottom:22px}.game-vn.sentence{font-size:26px}
+.game-input{width:100%;max-width:520px;height:52px;border:2px solid #dce3ee;border-radius:14px;padding:0 16px;font-size:17px;outline:none;text-align:center;color:#18203a}
+.game-input:focus{border-color:#8db3f5;box-shadow:0 0 0 4px #8db3f520}
+.game-actions{display:flex;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.game-btn{border:0;border-radius:25px;padding:12px 22px;font-weight:800;cursor:pointer;font-size:14px;background:#2773c7;color:#fff}
+.game-btn.secondary{background:#fff;color:#2773c7;border:1px solid #cddcf2}.game-btn:disabled{opacity:.5;cursor:not-allowed}
+.game-feedback{min-height:24px;text-align:center;font-weight:750;margin-top:12px}.game-feedback.correct{color:#16844b}.game-feedback.wrong{color:#d64545}
+.game-result{display:none;text-align:center;background:#fff;border:1px solid #e1e7f0;border-radius:18px;padding:28px;margin-top:16px}
+.score-big{font-size:54px;font-weight:900;color:#2773c7;margin:8px 0}.score-note{color:#697386;line-height:1.6}
+.game-list{margin-top:18px;text-align:left;display:grid;gap:8px}.game-item{padding:10px 12px;border-radius:10px;background:#f7f9fd;font-size:13px}.game-item b{display:block;margin-bottom:3px}.game-item.ok{border-left:4px solid #35a56b}.game-item.no{border-left:4px solid #f65369}
+
 </style>
 </head>
 <body>
@@ -117,8 +136,41 @@ h2{margin:0;font-size:23px}.sub{font-size:13px;color:#6c7485}
 </div>
 </section>
 
+
 <section>
-<div class="section-title"><h2>4. Cách học hôm nay</h2><span class="sub">Khoảng 25–30 phút</span></div>
+<div class="section-title"><h2>4. 10-Second English Game</h2><span class="sub">20 câu · mỗi câu 10 giây</span></div>
+<div class="game">
+  <div class="game-top">
+    <div class="game-progress" id="gameProgress">Ready?</div>
+    <div class="timer" id="gameTimer">10</div>
+  </div>
+  <p class="game-intro">20 câu được xáo trộn ngẫu nhiên: <b>10 câu từ vựng</b> + <b>10 câu điền từ vào ngữ cảnh</b>. Mỗi câu có <b>10 giây</b>. Học kỹ bài là có thể làm được. Mỗi câu đúng = <b>1 điểm</b>.</p>
+  <div id="gameStartArea" style="text-align:center">
+    <button class="game-btn" id="gameStart">▶ Start Game</button>
+  </div>
+  <div id="gamePlayArea" style="display:none">
+    <div class="game-question">
+      <div class="game-label" id="gameType">Translate into English</div>
+      <div class="game-vn" id="gameVietnamese">—</div>
+      <input class="game-input" id="gameInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer...">
+      <div class="game-actions">
+        <button class="game-btn" id="gameSubmit">CHECK →</button>
+      </div>
+      <div class="game-feedback" id="gameFeedback" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="game-result" id="gameResult" aria-live="polite">
+    <div class="game-label">Your result</div>
+    <div class="score-big" id="gameScore">0 / 20</div>
+    <div class="score-note" id="gameScoreNote"></div>
+    <div class="game-list" id="gameReview"></div>
+    <button class="game-btn" id="gameRestart" style="margin-top:18px">↻ Play Again</button>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="section-title"><h2>5. Cách học hôm nay</h2><span class="sub">Khoảng 25–30 phút</span></div><span class="sub">Khoảng 25–30 phút</span></div>
 <div class="method"><div class="steps">
 <div class="step"><div class="num">01 · 5 MIN</div><b>Nhìn & hiểu</b><span>Đọc 20 từ, hiểu cách dùng trong câu.</span></div>
 <div class="step"><div class="num">02 · 8 MIN</div><b>Nghe & nhại</b><span>Bấm 🔊, nghe từng câu rồi nói theo 2–3 lần.</span></div>
@@ -153,6 +205,191 @@ function next(){if(i>=lines.length)return;const u=new SpeechSynthesisUtterance(l
 next();
 });
 document.getElementById("stopAll").addEventListener("click",()=>synth.cancel());
+
+
+/* ===== 10-second mixed English game ===== */
+
+const vocabularyPool=[
+ {vn:"thật ra / thực ra",en:"actually"},
+ {vn:"kiểm tra",en:"check"},
+ {vn:"xác nhận",en:"confirm"},
+ {vn:"cập nhật",en:"update"},
+ {vn:"xem xét / kiểm tra lại",en:"review"},
+ {vn:"vấn đề",en:"issue"},
+ {vn:"chi tiết",en:"detail"},
+ {vn:"thảo luận",en:"discuss"},
+ {vn:"đồng ý",en:"agree"},
+ {vn:"đề xuất",en:"suggest"},
+ {vn:"cung cấp / bố trí",en:"provide"},
+ {vn:"theo dõi / trao đổi tiếp",en:"follow up"},
+ {vn:"tiến độ",en:"progress"},
+ {vn:"hiện tại",en:"current"},
+ {vn:"mới nhất",en:"latest"},
+ {vn:"sẵn sàng",en:"ready"},
+ {vn:"đủ",en:"enough"},
+ {vn:"phụ thuộc",en:"depend"},
+ {vn:"bao gồm",en:"include"},
+ {vn:"yêu cầu",en:"request"}
+];
+
+const sentencePool=[
+ {prompt:"I’ll ___ the drawing again.",hint:"kiểm tra",en:"check"},
+ {prompt:"Can you ___ the required height?",hint:"xác nhận",en:"confirm"},
+ {prompt:"I’ll ___ the model this afternoon.",hint:"cập nhật",en:"update"},
+ {prompt:"Could you ___ this layout before the meeting?",hint:"xem xét / kiểm tra lại",en:"review"},
+ {prompt:"There’s a small ___ with the wall thickness.",hint:"vấn đề",en:"issue"},
+ {prompt:"I need to check a few ___.",hint:"chi tiết",en:"details",accepted:["detail","details"]},
+ {prompt:"Can we ___ this after the meeting?",hint:"thảo luận",en:"discuss"},
+ {prompt:"I ___ with that approach.",hint:"đồng ý",en:"agree"},
+ {prompt:"I’d ___ keeping the current layout for now.",hint:"đề xuất",en:"suggest"},
+ {prompt:"We need to ___ more information.",hint:"cung cấp / bố trí",en:"provide"},
+ {prompt:"I’ll ___ with the structural team.",hint:"theo dõi / trao đổi tiếp",en:"follow up"},
+ {prompt:"Can you give me a quick ___ on the remaining work?",hint:"cập nhật",en:"update"},
+ {prompt:"Can you give me a quick update on the project’s ___?",hint:"tiến độ",en:"progress"},
+ {prompt:"Let’s keep the ___ layout for now.",hint:"hiện tại",en:"current"},
+ {prompt:"I’ve updated the ___ model.",hint:"mới nhất",en:"latest"},
+ {prompt:"I’m ___ to go through it.",hint:"sẵn sàng",en:"ready"},
+ {prompt:"Is there ___ space here?",hint:"đủ",en:"enough"},
+ {prompt:"It ___ on the structural layout.",hint:"phụ thuộc",en:"depends",accepted:["depend","depends"]},
+ {prompt:"Does this ___ the lobby?",hint:"bao gồm",en:"include"},
+ {prompt:"I’ll check the client’s ___.",hint:"yêu cầu",en:"request"}
+];
+
+const gameState={questions:[],index:0,score:0,answers:[],timer:null,remaining:10,locked:false};
+const $=id=>document.getElementById(id);
+
+function normaliseAnswer(value){
+ return value.toLowerCase().trim().replace(/[.,!?;:]/g,"").replace(/\s+/g," ");
+}
+function shuffle(array){
+ const a=[...array];
+ for(let i=a.length-1;i>0;i--){
+   const j=Math.floor(Math.random()*(i+1));
+   [a[i],a[j]]=[a[j],a[i]];
+ }
+ return a;
+}
+function buildGameQuestions(){
+ const vocab=shuffle(vocabularyPool).slice(0,10).map(q=>({type:"vocab",vn:q.vn,en:q.en}));
+ const sentences=shuffle(sentencePool).slice(0,10).map(q=>({
+   type:"sentence",prompt:q.prompt,hint:q.hint,en:q.en,accepted:q.accepted||[q.en]
+ }));
+ return shuffle([...vocab,...sentences]);
+}
+function resetTimer(){
+ clearInterval(gameState.timer);
+ gameState.remaining=10;
+ $("gameTimer").textContent="10";
+ gameState.timer=setInterval(()=>{
+   gameState.remaining--;
+   $("gameTimer").textContent=String(gameState.remaining);
+   if(gameState.remaining<=0){
+     clearInterval(gameState.timer);
+     submitGameAnswer(true);
+   }
+ },1000);
+}
+function showGameQuestion(){
+ gameState.locked=false;
+ const q=gameState.questions[gameState.index];
+ $("gameProgress").textContent=`Question ${gameState.index+1} / ${gameState.questions.length}`;
+ $("gameInput").value="";
+ $("gameFeedback").textContent="";
+ $("gameFeedback").className="game-feedback";
+ $("gameInput").disabled=false;
+ $("gameSubmit").disabled=false;
+
+ if(q.type==="vocab"){
+   $("gameType").textContent="Translate into English";
+   $("gameVietnamese").textContent=q.vn;
+   $("gameVietnamese").classList.remove("sentence");
+   $("gameInput").placeholder="Type the English word...";
+ }else{
+   $("gameType").textContent="Complete the sentence";
+   $("gameVietnamese").innerHTML=`${q.prompt}<div style="font-size:13px;color:#7b8496;margin-top:10px;font-weight:600">💡 Hint: ${q.hint}</div>`;
+   $("gameVietnamese").classList.add("sentence");
+   $("gameInput").placeholder="Type the missing word...";
+ }
+ $("gameInput").focus();
+ resetTimer();
+}
+function startGame(){
+ clearInterval(gameState.timer);
+ gameState.questions=buildGameQuestions();
+ gameState.index=0;
+ gameState.score=0;
+ gameState.answers=[];
+ gameState.locked=false;
+ $("gameStartArea").style.display="none";
+ $("gameResult").style.display="none";
+ $("gamePlayArea").style.display="block";
+ showGameQuestion();
+}
+function isAnswerCorrect(q,typed){
+ const value=normaliseAnswer(typed);
+ if(q.type==="sentence") return q.accepted.some(answer=>normaliseAnswer(answer)===value);
+ return value===normaliseAnswer(q.en);
+}
+function correctAnswer(q){return q.en}
+function submitGameAnswer(timeout=false){
+ if(gameState.locked)return;
+ gameState.locked=true;
+ clearInterval(gameState.timer);
+
+ const q=gameState.questions[gameState.index];
+ const typed=$("gameInput").value.trim();
+ const correct=isAnswerCorrect(q,typed);
+ if(correct)gameState.score++;
+ gameState.answers.push({q,typed,correct,timeout});
+
+ $("gameInput").disabled=true;
+ $("gameSubmit").disabled=true;
+
+ const feedback=$("gameFeedback");
+ feedback.className="game-feedback "+(correct?"correct":"wrong");
+ feedback.textContent=correct
+   ?"✓ Correct!"
+   :(timeout?"⏰ Time! Answer: ":"✗ Answer: ")+correctAnswer(q);
+
+ setTimeout(()=>{
+   if(gameState.index<gameState.questions.length-1){
+     gameState.index++;
+     showGameQuestion();
+   }else{
+     showGameResult();
+   }
+ },850);
+}
+function showGameResult(){
+ clearInterval(gameState.timer);
+ $("gamePlayArea").style.display="none";
+ $("gameResult").style.display="block";
+ $("gameProgress").textContent="Finished!";
+ $("gameTimer").textContent="✓";
+ $("gameScore").textContent=`${gameState.score} / ${gameState.questions.length}`;
+
+ const pct=Math.round(gameState.score/gameState.questions.length*100);
+ $("gameScoreNote").textContent=`Score: ${pct}%. Review your answers below and play again to improve.`;
+
+ $("gameReview").innerHTML=gameState.answers.map((a,i)=>{
+   const answer=a.typed||"(no answer)";
+   const questionText=a.q.type==="vocab"?a.q.vn:a.q.prompt;
+   const type=a.q.type==="vocab"?"Vocabulary":"Sentence";
+   return `<div class="game-item ${a.correct?"ok":"no"}">
+     <b>${i+1}. ${questionText}</b>
+     <span style="color:#697386">${type}</span><br>
+     Your answer: ${answer} · Correct: ${correctAnswer(a.q)}
+   </div>`;
+ }).join("");
+}
+
+$("gameStart").addEventListener("click",startGame);
+$("gameSubmit").addEventListener("click",()=>submitGameAnswer(false));
+$("gameRestart").addEventListener("click",startGame);
+$("gameInput").addEventListener("keydown",e=>{
+ if(e.key==="Enter")submitGameAnswer(false);
+});
+
 </script>
 </body>
 </html>
