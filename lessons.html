@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lessons • ChiuChiu English</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#191d3a;color:#18203a}
+.page{width:min(1200px,calc(100% - 40px));min-height:100vh;margin:20px auto;background:#fff;padding-bottom:50px}
+header{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid #edf0f5}
+.logo{font-size:20px;font-weight:800;display:flex;gap:12px;align-items:center}.logo i{width:22px;height:22px;background:#8db3f5;border-radius:50%}
+.back{color:#2773c7;text-decoration:none;font-weight:700}
+main{padding:60px 7%}.eyebrow{font-size:13px;color:#2773c7;font-weight:800;text-transform:uppercase;letter-spacing:1.5px}
+h1{font-size:54px;letter-spacing:-2px;margin:10px 0 12px}main>p{color:#697286;line-height:1.7;max-width:650px;margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border:1px solid #e4e9f2;border-radius:22px;padding:25px;background:#fff;box-shadow:0 12px 30px #18203a0c;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 35px #18203a16}
+.num{font-size:13px;color:#2773c7;font-weight:800;margin-bottom:15px}
+.card h2{font-size:22px;margin-bottom:9px}.card p{font-size:14px;line-height:1.65;color:#697286;min-height:68px}
+.card a{display:inline-block;margin-top:18px;background:#f65369;color:#fff;text-decoration:none;font-weight:800;padding:11px 18px;border-radius:24px;font-size:13px}
+@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.page{width:calc(100% - 20px);margin:10px auto}header{height:70px;padding:0 5%}main{padding:45px 7%}h1{font-size:43px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header><div class="logo"><i></i> ChiuChiu English.</div><a class="back" href="index.html">← Home</a></header>
+<main>
+<div class="eyebrow">Your learning path</div>
+<h1>Lessons</h1>
+<p>Choose a lesson and practise English through real workplace conversations, with a focus on Australian meetings.</p>
+<div class="grid">
+<div class="card"><div class="num">LESSON 01</div><h2>Meeting Basics</h2><p>Build your core vocabulary, useful chunks and confidence for everyday meetings.</p><a href="lesson1.html">Open Lesson →</a></div>
+<div class="card"><div class="num">LESSON 02</div><h2>Joining the Discussion</h2><p>Learn practical phrases for entering a discussion and sharing your ideas naturally.</p><a href="lesson2.html">Open Lesson →</a></div>
+<div class="card"><div class="num">LESSON 03</div><h2>Agreeing & Next Steps</h2><p>Practise agreeing, confirming actions and finishing a discussion clearly.</p><a href="lesson3.html">Open Lesson →</a></div>
+</div>
+</main>
+</div>
+</body>
+</html>
