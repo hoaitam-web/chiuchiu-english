@@ -3,7 +3,17 @@
 <title>ChiuChiu English — Lesson 2</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#f5f7fb;color:#172033}
-.wrap{max-width:1120px;margin:auto;padding:28px 18px 60px}.hero{background:linear-gradient(135deg,#18294a,#4776a9);color:white;border-radius:26px;padding:40px;position:relative;overflow:hidden}
+.wrap{max-width:1120px;margin:auto;padding:28px 18px 60px}.lesson-nav{position:sticky;top:10px;z-index:20;display:flex;justify-content:space-between;gap:10px;margin-bottom:12px}
+.nav-btn{display:inline-flex;align-items:center;text-decoration:none;font-size:13px;font-weight:800;padding:9px 13px;border-radius:999px;background:#fff;border:1px solid #dce4ef;color:#3155b5;box-shadow:0 4px 14px #1720330a;transition:.15s}
+.nav-btn:hover{transform:translateY(-1px);background:#edf4ff}
+.nav-btn.next{margin-left:auto}
+.word-top .word{font-size:20px;font-weight:750}
+.pos{font-size:11px;color:#667085;background:#eef1f5;padding:3px 7px;border-radius:7px}
+.actions{display:flex;gap:7px;margin-top:10px}
+.audio{background:#edf2ff;color:#3155b5;border-radius:10px;padding:6px 10px;font-size:12px;font-weight:650;border:0;cursor:pointer}
+.audio:hover{background:#dfe7ff}
+.audio.mini{padding:5px 8px}
+.hero{background:linear-gradient(135deg,#18294a,#4776a9);color:white;border-radius:26px;padding:40px;position:relative;overflow:hidden}
 .hero:after{content:"🎮";position:absolute;font-size:150px;right:35px;bottom:-35px;opacity:.12}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:800}
 h1{font-size:44px;line-height:1.05;margin:10px 0 14px;max-width:700px}.hero p{max-width:720px;color:#dce8f5;line-height:1.65}
 .goal{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:#ffffff18;border:1px solid #ffffff30;padding:8px 12px;border-radius:999px;font-size:12px}
@@ -11,7 +21,7 @@ h2{font-size:27px;margin:42px 0 7px}.sub{color:#68758a;margin-bottom:18px;line-h
 .plan{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.plan div{background:#fff;border:1px solid #e2e7ef;border-radius:16px;padding:15px;min-height:105px}.plan b{display:block;margin-bottom:6px}.plan span{font-size:12px;color:#68758a}
 .words{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.word-card{background:#fff;border:1px solid #e1e7ef;border-radius:17px;padding:16px;min-height:205px;box-shadow:0 4px 12px #18283b0a}
 .word-top{display:flex;justify-content:space-between;align-items:center}.emoji{font-size:27px}.topic{font-size:10px;text-transform:uppercase;font-weight:800;color:#6480a4;background:#edf4ff;padding:5px 8px;border-radius:999px}
-.word-card h3{margin:10px 0 2px;font-size:20px}.type{font-size:11px;color:#8190a4;font-style:italic}.word-card p{font-size:13px;line-height:1.5}.example{border-top:1px solid #edf0f4;padding-top:10px;font-size:13px;line-height:1.5;color:#4b596d}
+.word-card h3{margin:10px 0 2px;font-size:20px}.click-word{cursor:pointer;transition:.15s}.click-word:hover{color:#2162b0;transform:translateX(2px)}.click-word:active{transform:scale(.98)}.type{font-size:11px;color:#8190a4;font-style:italic}.word-card p{font-size:13px;line-height:1.5}.example{border-top:1px solid #edf0f4;padding-top:10px;font-size:13px;line-height:1.5;color:#4b596d}
 .speak{border:0;border-radius:9px;background:#edf4ff;color:#2162b0;padding:7px 9px;cursor:pointer;font-weight:700}.mini{float:right;padding:4px 7px}
 .phrases{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.phrase-card{background:#fff;border:1px solid #e1e7ef;border-radius:15px;padding:16px}.phrase-card span{font-size:10px;text-transform:uppercase;color:#6480a4;font-weight:800}.phrase-card h3{margin:8px 0;font-size:17px}.phrase-card p{margin:0;color:#68758a;font-size:13px}
 .dialogue{display:flex;flex-direction:column;gap:9px}.dline{display:grid;grid-template-columns:50px 1fr auto;gap:12px;align-items:start;background:#fff;border:1px solid #e1e7ef;border-radius:14px;padding:13px}.speaker{font-weight:900;color:#2162b0}.dline p{margin:5px 0 0;color:#7a8494;font-size:12px}
@@ -20,175 +30,112 @@ h2{font-size:27px;margin:42px 0 7px}.sub{color:#68758a;margin-bottom:18px;line-h
 .opt{border:1px solid #cfd9e7;background:#f9fbff;border-radius:11px;padding:11px;cursor:pointer;text-align:left;font-weight:650}.opt:hover{background:#eef5ff}.opt.correct{background:#dff7e8;border-color:#26a269}.opt.wrong{background:#ffe5e5;border-color:#db5a5a}.feedback{font-size:12px;font-weight:700;margin-top:8px;min-height:17px}
 .game-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px}.game-btn{border:0;border-radius:11px;padding:12px 18px;background:#2162b0;color:#fff;font-weight:900;cursor:pointer}.game-btn.secondary{background:#fff;color:#172033;border:1px solid #cbd5e1}.final{font-size:18px;font-weight:900}
 .note{background:#fff7dc;border:1px solid #f0df9b;border-radius:15px;padding:14px;margin-top:16px;font-size:13px;line-height:1.6}.footer{text-align:center;color:#8993a3;font-size:12px;margin-top:35px}
-@media(max-width:800px){.plan{grid-template-columns:repeat(2,1fr)}.words{grid-template-columns:repeat(2,1fr)}.opts{grid-template-columns:1fr}h1{font-size:36px}}
+@media(max-width:800px){.lesson-nav{position:relative;top:auto}.nav-btn{font-size:12px;padding:8px 11px}}.plan{grid-template-columns:repeat(2,1fr)}.words{grid-template-columns:repeat(2,1fr)}.opts{grid-template-columns:1fr}h1{font-size:36px}}
 @media(max-width:500px){.hero{padding:28px}.plan,.words,.phrases{grid-template-columns:1fr}.wrap{padding:14px}.dline{grid-template-columns:38px 1fr auto}}
-</style></head><body><div class="wrap">
+</style></head><body><div class="wrap"><div class="lesson-nav">
+  <a class="nav-btn prev" href="https://hoaitam-web.github.io/chiuchiu-english/lesson1.html">← Lesson 1</a>
+  <a class="nav-btn next" href="https://hoaitam-web.github.io/chiuchiu-english/lesson3.html">Lesson 3 →</a>
+</div>
 <section class="hero"><div class="eyebrow">Lesson 02 · Everyday English</div><h1>Speak beyond work. 🌏🍜✈️</h1>
 <p>Lesson 2 mở rộng vốn tiếng Anh ra ngoài công việc: giao tiếp xã giao, du lịch, ẩm thực và đời sống hằng ngày. English cho công việc chỉ chiếm khoảng 20–30%.</p>
 <div class="goal"><span class="pill">👋 Social</span><span class="pill">✈️ Travel</span><span class="pill">🍜 Food</span><span class="pill">🏠 Daily life</span><span class="pill">💼 Work · 20–30%</span></div></section>
 
-<h2>1. Dàn bài Lesson 2</h2><div class="sub">Từ lesson này trở đi, mỗi bài sẽ mở rộng theo nhiều tình huống. Từ đã học chỉ quay lại ở phần game ôn tập, không chiếm phần từ vựng chính.</div>
-<div class="plan"><div><b>👋 Social</b><span>small talk, hỏi thăm, rủ đi cà phê</span></div><div><b>✈️ Travel</b><span>hotel, di chuyển, hỏi đường, địa điểm</span></div><div><b>🍜 Food</b><span>gọi món, khẩu vị, nguyên liệu</span></div><div><b>🏠 Daily</b><span>việc thường ngày, cảm xúc, phrasal verbs</span></div><div><b>💼 Work</b><span>deadline, feedback, follow-up, coordination</span></div></div>
-
-<h2>2. 30 từ & cụm từ mới</h2><div class="sub">20–30% work English + phần lớn là English dùng ngoài công việc. Mỗi từ có ví dụ thực tế và nút nghe.</div>
-<div class="words"><article class="word-card">
+<h2>1. 30 từ & cụm từ mới</h2><div class="sub">20–30% work English + phần lớn là English dùng ngoài công việc. Mỗi từ có ví dụ thực tế và nút nghe.</div>
+<div class="sub" style="margin-top:-8px">🔊 Bấm nút <b>🔊</b> để nghe từ/cụm từ. Bấm <b>🔊 Example</b> để nghe câu ví dụ.</div><div class="words"><article class="word-card">
 <div class="word-top"><span class="emoji">👋</span><span class="topic">Social</span></div>
-<h3>catch up</h3><span class="type">verb phrase</span>
-<p><b>VN:</b> hỏi thăm / trò chuyện để cập nhật tình hình</p>
-<div class="example">“It was great to catch up with you.” <button class="speak mini" onclick='speakText("It was great to catch up with you.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">catch up</span><span class="pos">verb phrase</span></div><div class="meaning">hỏi thăm / trò chuyện để cập nhật tình hình</div><div class="example">It was great to catch up with you.</div><div class="actions"><button class="audio" data-text="catch up">🔊</button><button class="audio" data-text="It was great to catch up with you.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">😊</span><span class="topic">Social</span></div>
-<h3>How have you been?</h3><span class="type">phrase</span>
-<p><b>VN:</b> Dạo này bạn thế nào?</p>
-<div class="example">“Hey, how have you been?” <button class="speak mini" onclick='speakText("Hey, how have you been?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">How have you been?</span><span class="pos">phrase</span></div><div class="meaning">Dạo này bạn thế nào?</div><div class="example">Hey, how have you been?</div><div class="actions"><button class="audio" data-text="How have you been?">🔊</button><button class="audio" data-text="Hey, how have you been?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">☕</span><span class="topic">Social</span></div>
-<h3>grab a coffee</h3><span class="type">phrase</span>
-<p><b>VN:</b> đi uống cà phê</p>
-<div class="example">“Do you want to grab a coffee later?” <button class="speak mini" onclick='speakText("Do you want to grab a coffee later?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">grab a coffee</span><span class="pos">phrase</span></div><div class="meaning">đi uống cà phê</div><div class="example">Do you want to grab a coffee later?</div><div class="actions"><button class="audio" data-text="grab a coffee">🔊</button><button class="audio" data-text="Do you want to grab a coffee later?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">💬</span><span class="topic">Social</span></div>
-<h3>by the way</h3><span class="type">phrase</span>
-<p><b>VN:</b> à, nhân tiện</p>
-<div class="example">“By the way, how was your trip?” <button class="speak mini" onclick='speakText("By the way, how was your trip?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">by the way</span><span class="pos">phrase</span></div><div class="meaning">à, nhân tiện</div><div class="example">By the way, how was your trip?</div><div class="actions"><button class="audio" data-text="by the way">🔊</button><button class="audio" data-text="By the way, how was your trip?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">👍</span><span class="topic">Social</span></div>
-<h3>sounds like</h3><span class="type">phrase</span>
-<p><b>VN:</b> nghe có vẻ / nghe như là</p>
-<div class="example">“That sounds like a great idea.” <button class="speak mini" onclick='speakText("That sounds like a great idea.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">sounds like</span><span class="pos">phrase</span></div><div class="meaning">nghe có vẻ / nghe như là</div><div class="example">That sounds like a great idea.</div><div class="actions"><button class="audio" data-text="sounds like">🔊</button><button class="audio" data-text="That sounds like a great idea.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🎉</span><span class="topic">Social</span></div>
-<h3>looking forward to</h3><span class="type">phrase</span>
-<p><b>VN:</b> mong chờ</p>
-<div class="example">“I&#x27;m looking forward to the weekend.” <button class="speak mini" onclick='speakText("I'm looking forward to the weekend.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">looking forward to</span><span class="pos">phrase</span></div><div class="meaning">mong chờ</div><div class="example">I&#x27;m looking forward to the weekend.</div><div class="actions"><button class="audio" data-text="looking forward to">🔊</button><button class="audio" data-text="I&#x27;m looking forward to the weekend.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">✈️</span><span class="topic">Travel</span></div>
-<h3>destination</h3><span class="type">noun</span>
-<p><b>VN:</b> điểm đến</p>
-<div class="example">“What&#x27;s your next travel destination?” <button class="speak mini" onclick='speakText("What's your next travel destination?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">destination</span><span class="pos">noun</span></div><div class="meaning">điểm đến</div><div class="example">What&#x27;s your next travel destination?</div><div class="actions"><button class="audio" data-text="destination">🔊</button><button class="audio" data-text="What&#x27;s your next travel destination?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🧳</span><span class="topic">Travel</span></div>
-<h3>luggage</h3><span class="type">noun</span>
-<p><b>VN:</b> hành lý</p>
-<div class="example">“Where can I leave my luggage?” <button class="speak mini" onclick='speakText("Where can I leave my luggage?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">luggage</span><span class="pos">noun</span></div><div class="meaning">hành lý</div><div class="example">Where can I leave my luggage?</div><div class="actions"><button class="audio" data-text="luggage">🔊</button><button class="audio" data-text="Where can I leave my luggage?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🏨</span><span class="topic">Travel</span></div>
-<h3>check in</h3><span class="type">verb phrase</span>
-<p><b>VN:</b> làm thủ tục nhận phòng / lên máy bay</p>
-<div class="example">“What time can we check in?” <button class="speak mini" onclick='speakText("What time can we check in?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">check in</span><span class="pos">verb phrase</span></div><div class="meaning">làm thủ tục nhận phòng / lên máy bay</div><div class="example">What time can we check in?</div><div class="actions"><button class="audio" data-text="check in">🔊</button><button class="audio" data-text="What time can we check in?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🗺️</span><span class="topic">Travel</span></div>
-<h3>get around</h3><span class="type">verb phrase</span>
-<p><b>VN:</b> đi lại, di chuyển quanh một nơi</p>
-<div class="example">“It&#x27;s easy to get around by train.” <button class="speak mini" onclick='speakText("It's easy to get around by train.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">get around</span><span class="pos">verb phrase</span></div><div class="meaning">đi lại, di chuyển quanh một nơi</div><div class="example">It&#x27;s easy to get around by train.</div><div class="actions"><button class="audio" data-text="get around">🔊</button><button class="audio" data-text="It&#x27;s easy to get around by train.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">📍</span><span class="topic">Travel</span></div>
-<h3>nearby</h3><span class="type">adverb/adjective</span>
-<p><b>VN:</b> gần đây</p>
-<div class="example">“Is there a good restaurant nearby?” <button class="speak mini" onclick='speakText("Is there a good restaurant nearby?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">nearby</span><span class="pos">adverb/adjective</span></div><div class="meaning">gần đây</div><div class="example">Is there a good restaurant nearby?</div><div class="actions"><button class="audio" data-text="nearby">🔊</button><button class="audio" data-text="Is there a good restaurant nearby?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🚆</span><span class="topic">Travel</span></div>
-<h3>worth it</h3><span class="type">phrase</span>
-<p><b>VN:</b> đáng, xứng đáng</p>
-<div class="example">“The view is amazing. It&#x27;s worth it.” <button class="speak mini" onclick='speakText("The view is amazing. It's worth it.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">worth it</span><span class="pos">phrase</span></div><div class="meaning">đáng, xứng đáng</div><div class="example">The view is amazing. It&#x27;s worth it.</div><div class="actions"><button class="audio" data-text="worth it">🔊</button><button class="audio" data-text="The view is amazing. It&#x27;s worth it.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🍜</span><span class="topic">Food</span></div>
-<h3>recommend</h3><span class="type">verb</span>
-<p><b>VN:</b> giới thiệu / đề xuất</p>
-<div class="example">“What would you recommend?” <button class="speak mini" onclick='speakText("What would you recommend?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">recommend</span><span class="pos">verb</span></div><div class="meaning">giới thiệu / đề xuất</div><div class="example">What would you recommend?</div><div class="actions"><button class="audio" data-text="recommend">🔊</button><button class="audio" data-text="What would you recommend?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🌶️</span><span class="topic">Food</span></div>
-<h3>spicy</h3><span class="type">adjective</span>
-<p><b>VN:</b> cay</p>
-<div class="example">“Is this dish very spicy?” <button class="speak mini" onclick='speakText("Is this dish very spicy?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">spicy</span><span class="pos">adjective</span></div><div class="meaning">cay</div><div class="example">Is this dish very spicy?</div><div class="actions"><button class="audio" data-text="spicy">🔊</button><button class="audio" data-text="Is this dish very spicy?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🥗</span><span class="topic">Food</span></div>
-<h3>ingredient</h3><span class="type">noun</span>
-<p><b>VN:</b> nguyên liệu</p>
-<div class="example">“What are the main ingredients?” <button class="speak mini" onclick='speakText("What are the main ingredients?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">ingredient</span><span class="pos">noun</span></div><div class="meaning">nguyên liệu</div><div class="example">What are the main ingredients?</div><div class="actions"><button class="audio" data-text="ingredient">🔊</button><button class="audio" data-text="What are the main ingredients?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🍽️</span><span class="topic">Food</span></div>
-<h3>portion</h3><span class="type">noun</span>
-<p><b>VN:</b> khẩu phần</p>
-<div class="example">“The portions are quite big here.” <button class="speak mini" onclick='speakText("The portions are quite big here.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">portion</span><span class="pos">noun</span></div><div class="meaning">khẩu phần</div><div class="example">The portions are quite big here.</div><div class="actions"><button class="audio" data-text="portion">🔊</button><button class="audio" data-text="The portions are quite big here.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">😋</span><span class="topic">Food</span></div>
-<h3>delicious</h3><span class="type">adjective</span>
-<p><b>VN:</b> ngon</p>
-<div class="example">“That was absolutely delicious.” <button class="speak mini" onclick='speakText("That was absolutely delicious.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">delicious</span><span class="pos">adjective</span></div><div class="meaning">ngon</div><div class="example">That was absolutely delicious.</div><div class="actions"><button class="audio" data-text="delicious">🔊</button><button class="audio" data-text="That was absolutely delicious.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">⏰</span><span class="topic">Daily</span></div>
-<h3>run late</h3><span class="type">verb phrase</span>
-<p><b>VN:</b> trễ giờ</p>
-<div class="example">“Sorry, I&#x27;m running late.” <button class="speak mini" onclick='speakText("Sorry, I'm running late.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">run late</span><span class="pos">verb phrase</span></div><div class="meaning">trễ giờ</div><div class="example">Sorry, I&#x27;m running late.</div><div class="actions"><button class="audio" data-text="run late">🔊</button><button class="audio" data-text="Sorry, I&#x27;m running late.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🛒</span><span class="topic">Daily</span></div>
-<h3>pick up</h3><span class="type">phrasal verb</span>
-<p><b>VN:</b> ghé lấy / mua nhanh</p>
-<div class="example">“I&#x27;ll pick up some milk on the way home.” <button class="speak mini" onclick='speakText("I'll pick up some milk on the way home.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">pick up</span><span class="pos">phrasal verb</span></div><div class="meaning">ghé lấy / mua nhanh</div><div class="example">I&#x27;ll pick up some milk on the way home.</div><div class="actions"><button class="audio" data-text="pick up">🔊</button><button class="audio" data-text="I&#x27;ll pick up some milk on the way home.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🏠</span><span class="topic">Daily</span></div>
-<h3>drop by</h3><span class="type">phrasal verb</span>
-<p><b>VN:</b> ghé qua</p>
-<div class="example">“Feel free to drop by anytime.” <button class="speak mini" onclick='speakText("Feel free to drop by anytime.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">drop by</span><span class="pos">phrasal verb</span></div><div class="meaning">ghé qua</div><div class="example">Feel free to drop by anytime.</div><div class="actions"><button class="audio" data-text="drop by">🔊</button><button class="audio" data-text="Feel free to drop by anytime.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🧹</span><span class="topic">Daily</span></div>
-<h3>sort out</h3><span class="type">phrasal verb</span>
-<p><b>VN:</b> giải quyết / sắp xếp ổn thỏa</p>
-<div class="example">“I&#x27;ll sort it out tonight.” <button class="speak mini" onclick='speakText("I'll sort it out tonight.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">sort out</span><span class="pos">phrasal verb</span></div><div class="meaning">giải quyết / sắp xếp ổn thỏa</div><div class="example">I&#x27;ll sort it out tonight.</div><div class="actions"><button class="audio" data-text="sort out">🔊</button><button class="audio" data-text="I&#x27;ll sort it out tonight.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">💡</span><span class="topic">Daily</span></div>
-<h3>figure out</h3><span class="type">phrasal verb</span>
-<p><b>VN:</b> tìm ra cách / hiểu ra</p>
-<div class="example">“We&#x27;ll figure it out.” <button class="speak mini" onclick='speakText("We'll figure it out.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">figure out</span><span class="pos">phrasal verb</span></div><div class="meaning">tìm ra cách / hiểu ra</div><div class="example">We&#x27;ll figure it out.</div><div class="actions"><button class="audio" data-text="figure out">🔊</button><button class="audio" data-text="We&#x27;ll figure it out.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">😴</span><span class="topic">Daily</span></div>
-<h3>exhausted</h3><span class="type">adjective</span>
-<p><b>VN:</b> kiệt sức</p>
-<div class="example">“I&#x27;m absolutely exhausted today.” <button class="speak mini" onclick='speakText("I'm absolutely exhausted today.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">exhausted</span><span class="pos">adjective</span></div><div class="meaning">kiệt sức</div><div class="example">I&#x27;m absolutely exhausted today.</div><div class="actions"><button class="audio" data-text="exhausted">🔊</button><button class="audio" data-text="I&#x27;m absolutely exhausted today.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🌤️</span><span class="topic">Daily</span></div>
-<h3>pretty</h3><span class="type">adverb</span>
-<p><b>VN:</b> khá / tương đối (trong &#x27;pretty good&#x27;)</p>
-<div class="example">“The weather is pretty good today.” <button class="speak mini" onclick='speakText("The weather is pretty good today.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">pretty</span><span class="pos">adverb</span></div><div class="meaning">khá / tương đối (trong &#x27;pretty good&#x27;)</div><div class="example">The weather is pretty good today.</div><div class="actions"><button class="audio" data-text="pretty">🔊</button><button class="audio" data-text="The weather is pretty good today.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">📅</span><span class="topic">Work</span></div>
-<h3>deadline</h3><span class="type">noun</span>
-<p><b>VN:</b> hạn chót</p>
-<div class="example">“What&#x27;s the deadline for this?” <button class="speak mini" onclick='speakText("What's the deadline for this?")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">deadline</span><span class="pos">noun</span></div><div class="meaning">hạn chót</div><div class="example">What&#x27;s the deadline for this?</div><div class="actions"><button class="audio" data-text="deadline">🔊</button><button class="audio" data-text="What&#x27;s the deadline for this?">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">📝</span><span class="topic">Work</span></div>
-<h3>feedback</h3><span class="type">noun</span>
-<p><b>VN:</b> phản hồi / góp ý</p>
-<div class="example">“Thanks for the feedback.” <button class="speak mini" onclick='speakText("Thanks for the feedback.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">feedback</span><span class="pos">noun</span></div><div class="meaning">phản hồi / góp ý</div><div class="example">Thanks for the feedback.</div><div class="actions"><button class="audio" data-text="feedback">🔊</button><button class="audio" data-text="Thanks for the feedback.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🤝</span><span class="topic">Work</span></div>
-<h3>follow up</h3><span class="type">phrasal verb</span>
-<p><b>VN:</b> theo dõi / liên hệ lại</p>
-<div class="example">“I&#x27;ll follow up with them tomorrow.” <button class="speak mini" onclick='speakText("I'll follow up with them tomorrow.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">follow up</span><span class="pos">phrasal verb</span></div><div class="meaning">theo dõi / liên hệ lại</div><div class="example">I&#x27;ll follow up with them tomorrow.</div><div class="actions"><button class="audio" data-text="follow up">🔊</button><button class="audio" data-text="I&#x27;ll follow up with them tomorrow.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">🔍</span><span class="topic">Work</span></div>
-<h3>double-check</h3><span class="type">verb</span>
-<p><b>VN:</b> kiểm tra lại</p>
-<div class="example">“I&#x27;ll double-check that for you.” <button class="speak mini" onclick='speakText("I'll double-check that for you.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">double-check</span><span class="pos">verb</span></div><div class="meaning">kiểm tra lại</div><div class="example">I&#x27;ll double-check that for you.</div><div class="actions"><button class="audio" data-text="double-check">🔊</button><button class="audio" data-text="I&#x27;ll double-check that for you.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">➡️</span><span class="topic">Work</span></div>
-<h3>move on</h3><span class="type">phrasal verb</span>
-<p><b>VN:</b> chuyển sang việc tiếp theo</p>
-<div class="example">“Once that&#x27;s done, we can move on.” <button class="speak mini" onclick='speakText("Once that's done, we can move on.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">move on</span><span class="pos">phrasal verb</span></div><div class="meaning">chuyển sang việc tiếp theo</div><div class="example">Once that&#x27;s done, we can move on.</div><div class="actions"><button class="audio" data-text="move on">🔊</button><button class="audio" data-text="Once that&#x27;s done, we can move on.">🔊 Example</button></div>
 </article><article class="word-card">
 <div class="word-top"><span class="emoji">📂</span><span class="topic">Work</span></div>
-<h3>set up</h3><span class="type">phrasal verb</span>
-<p><b>VN:</b> thiết lập / chuẩn bị</p>
-<div class="example">“I&#x27;ll set up the file before the meeting.” <button class="speak mini" onclick='speakText("I'll set up the file before the meeting.")'>🔊</button></div>
+<div class="word-top"><span class="word click-word">set up</span><span class="pos">phrasal verb</span></div><div class="meaning">thiết lập / chuẩn bị</div><div class="example">I&#x27;ll set up the file before the meeting.</div><div class="actions"><button class="audio" data-text="set up">🔊</button><button class="audio" data-text="I&#x27;ll set up the file before the meeting.">🔊 Example</button></div>
 </article></div>
 
-<h2>3. Learn in chunks</h2><div class="sub">Đừng học từng từ riêng lẻ. Hãy nhớ cả cụm như một “khối” để nói nhanh hơn.</div>
-<div class="phrases"><div class="phrase-card"><span>Social</span><h3>“Nice to meet you.” <button class="speak mini" onclick='speakText("\u201cNice to meet you.\u201d")'>🔊</button></h3><p>Rất vui được gặp bạn.</p></div><div class="phrase-card"><span>Social</span><h3>“How&#x27;s everything going?” <button class="speak mini" onclick='speakText("\u201cHow's everything going?\u201d")'>🔊</button></h3><p>Mọi thứ dạo này thế nào?</p></div><div class="phrase-card"><span>Travel</span><h3>“How do I get to the city centre?” <button class="speak mini" onclick='speakText("\u201cHow do I get to the city centre?\u201d")'>🔊</button></h3><p>Tôi đi đến trung tâm thành phố bằng cách nào?</p></div><div class="phrase-card"><span>Travel</span><h3>“Is it within walking distance?” <button class="speak mini" onclick='speakText("\u201cIs it within walking distance?\u201d")'>🔊</button></h3><p>Có thể đi bộ tới đó không?</p></div><div class="phrase-card"><span>Food</span><h3>“What do you recommend?” <button class="speak mini" onclick='speakText("\u201cWhat do you recommend?\u201d")'>🔊</button></h3><p>Bạn đề xuất món gì?</p></div><div class="phrase-card"><span>Food</span><h3>“Could we get this to share?” <button class="speak mini" onclick='speakText("\u201cCould we get this to share?\u201d")'>🔊</button></h3><p>Bọn tôi có thể gọi món này để ăn chung không?</p></div><div class="phrase-card"><span>Daily</span><h3>“No worries, take your time.” <button class="speak mini" onclick='speakText("\u201cNo worries, take your time.\u201d")'>🔊</button></h3><p>Không sao, cứ từ từ.</p></div><div class="phrase-card"><span>Daily</span><h3>“I&#x27;ll sort it out.” <button class="speak mini" onclick='speakText("\u201cI'll sort it out.\u201d")'>🔊</button></h3><p>Tôi sẽ xử lý / sắp xếp ổn thỏa.</p></div><div class="phrase-card"><span>Work</span><h3>“I&#x27;ll double-check and get back to you.” <button class="speak mini" onclick='speakText("\u201cI'll double-check and get back to you.\u201d")'>🔊</button></h3><p>Tôi sẽ kiểm tra lại rồi phản hồi bạn.</p></div><div class="phrase-card"><span>Work</span><h3>“Once that&#x27;s done, we can move on.” <button class="speak mini" onclick='speakText("\u201cOnce that's done, we can move on.\u201d")'>🔊</button></h3><p>Xong việc đó thì chúng ta chuyển sang bước tiếp theo.</p></div></div>
+<h2>2. Learn in chunks</h2><div class="sub">Đừng học từng từ riêng lẻ. Hãy nhớ cả cụm như một “khối” để nói nhanh hơn.</div><div class="phrases"><div class="phrase-card"><span>Social</span><h3>Nice to meet you. <button class="audio mini" data-text="Nice to meet you.">🔊</button></h3><p>Rất vui được gặp bạn.</p></div><div class="phrase-card"><span>Social</span><h3>How&#x27;s everything going? <button class="audio mini" data-text="How&#x27;s everything going?">🔊</button></h3><p>Mọi thứ dạo này thế nào?</p></div><div class="phrase-card"><span>Travel</span><h3>How do I get to the city centre? <button class="audio mini" data-text="How do I get to the city centre?">🔊</button></h3><p>Tôi đi đến trung tâm thành phố bằng cách nào?</p></div><div class="phrase-card"><span>Travel</span><h3>Is it within walking distance? <button class="audio mini" data-text="Is it within walking distance?">🔊</button></h3><p>Có thể đi bộ tới đó không?</p></div><div class="phrase-card"><span>Food</span><h3>What do you recommend? <button class="audio mini" data-text="What do you recommend?">🔊</button></h3><p>Bạn đề xuất món gì?</p></div><div class="phrase-card"><span>Food</span><h3>Could we get this to share? <button class="audio mini" data-text="Could we get this to share?">🔊</button></h3><p>Bọn tôi có thể gọi món này để ăn chung không?</p></div><div class="phrase-card"><span>Daily</span><h3>No worries, take your time. <button class="audio mini" data-text="No worries, take your time.">🔊</button></h3><p>Không sao, cứ từ từ.</p></div><div class="phrase-card"><span>Daily</span><h3>I&#x27;ll sort it out. <button class="audio mini" data-text="I&#x27;ll sort it out.">🔊</button></h3><p>Tôi sẽ xử lý / sắp xếp ổn thỏa.</p></div><div class="phrase-card"><span>Work</span><h3>I&#x27;ll double-check and get back to you. <button class="audio mini" data-text="I&#x27;ll double-check and get back to you.">🔊</button></h3><p>Tôi sẽ kiểm tra lại rồi phản hồi bạn.</p></div><div class="phrase-card"><span>Work</span><h3>Once that&#x27;s done, we can move on. <button class="audio mini" data-text="Once that&#x27;s done, we can move on.">🔊</button></h3><p>Xong việc đó thì chúng ta chuyển sang bước tiếp theo.</p></div></div><h2>3. Real conversation</h2><div class="sub">Một đoạn small talk tự nhiên: hỏi thăm → du lịch → đồ ăn → rủ đi cà phê.</div>
+<div class="dialogue"><div class="dline"><div class="speaker">A</div><div><b>Hey, how have you been?</b><p>Này, dạo này bạn thế nào?</p></div><button class="audio" data-text="Hey, how have you been?">🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>Pretty good! I&#x27;ve just got back from a trip.</b><p>Khá ổn! Tôi vừa đi du lịch về.</p></div><button class="audio" data-text="Pretty good! I&#x27;ve just got back from a trip.">🔊</button></div><div class="dline"><div class="speaker">A</div><div><b>Nice! Where did you go?</b><p>Hay quá! Bạn đã đi đâu?</p></div><button class="audio" data-text="Nice! Where did you go?">🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>I went to Melbourne for a few days. It was great.</b><p>Tôi đi Melbourne vài ngày. Tuyệt lắm.</p></div><button class="audio" data-text="I went to Melbourne for a few days. It was great.">🔊</button></div><div class="dline"><div class="speaker">A</div><div><b>Sounds like fun. Did you find any good places to eat?</b><p>Nghe vui đấy. Bạn có tìm được chỗ nào ăn ngon không?</p></div><button class="audio" data-text="Sounds like fun. Did you find any good places to eat?">🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>Yeah. There&#x27;s a little Italian place nearby. It&#x27;s definitely worth it.</b><p>Có. Có một quán Ý nhỏ gần đó. Chắc chắn rất đáng thử.</p></div><button class="audio" data-text="Yeah. There&#x27;s a little Italian place nearby. It&#x27;s definitely worth it.">🔊</button></div><div class="dline"><div class="speaker">A</div><div><b>Nice. We should grab a coffee sometime.</b><p>Hay đấy. Hôm nào mình đi uống cà phê nhé.</p></div><button class="audio" data-text="Nice. We should grab a coffee sometime.">🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>Sure. Just let me know when you&#x27;re free.</b><p>Được. Cứ báo tôi khi nào bạn rảnh.</p></div><button class="audio" data-text="Sure. Just let me know when you&#x27;re free.">🔊</button></div></div>
 
-<h2>4. Real conversation</h2><div class="sub">Một đoạn small talk tự nhiên: hỏi thăm → du lịch → đồ ăn → rủ đi cà phê.</div>
-<div class="dialogue"><div class="dline"><div class="speaker">A</div><div><b>Hey, how have you been?</b><p>Này, dạo này bạn thế nào?</p></div><button class="speak" onclick='speakText("Hey, how have you been?")'>🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>Pretty good! I&#x27;ve just got back from a trip.</b><p>Khá ổn! Tôi vừa đi du lịch về.</p></div><button class="speak" onclick='speakText("Pretty good! I've just got back from a trip.")'>🔊</button></div><div class="dline"><div class="speaker">A</div><div><b>Nice! Where did you go?</b><p>Hay quá! Bạn đã đi đâu?</p></div><button class="speak" onclick='speakText("Nice! Where did you go?")'>🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>I went to Melbourne for a few days. It was great.</b><p>Tôi đi Melbourne vài ngày. Tuyệt lắm.</p></div><button class="speak" onclick='speakText("I went to Melbourne for a few days. It was great.")'>🔊</button></div><div class="dline"><div class="speaker">A</div><div><b>Sounds like fun. Did you find any good places to eat?</b><p>Nghe vui đấy. Bạn có tìm được chỗ nào ăn ngon không?</p></div><button class="speak" onclick='speakText("Sounds like fun. Did you find any good places to eat?")'>🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>Yeah. There&#x27;s a little Italian place nearby. It&#x27;s definitely worth it.</b><p>Có. Có một quán Ý nhỏ gần đó. Chắc chắn rất đáng thử.</p></div><button class="speak" onclick='speakText("Yeah. There's a little Italian place nearby. It's definitely worth it.")'>🔊</button></div><div class="dline"><div class="speaker">A</div><div><b>Nice. We should grab a coffee sometime.</b><p>Hay đấy. Hôm nào mình đi uống cà phê nhé.</p></div><button class="speak" onclick='speakText("Nice. We should grab a coffee sometime.")'>🔊</button></div><div class="dline"><div class="speaker">B</div><div><b>Sure. Just let me know when you&#x27;re free.</b><p>Được. Cứ báo tôi khi nào bạn rảnh.</p></div><button class="speak" onclick='speakText("Sure. Just let me know when you're free.")'>🔊</button></div></div>
-<div class="note">💡 <b>Australian meeting tip:</b> “How have you been?”, “Pretty good”, “Sounds like fun”, “No worries”, “Just let me know” là kiểu câu hữu ích để nói chuyện tự nhiên, không cần lúc nào cũng nói quá trang trọng.</div>
 
 <section class="game" id="game"><div class="game-head"><div><div class="eyebrow" style="color:#6480a4">LEVEL 02 · MINI GAME</div><h2 style="margin:5px 0">🎮 Choose the right answer</h2><div class="sub" style="margin:0">15 câu từ mới + 5 câu ôn Lesson 1. Chọn đáp án, nhận phản hồi ngay.</div></div><div class="scorebox">⭐ Score: <span id="score">0</span> / 20</div></div>
 <div id="questions"><div class="game-q" data-done="0">
@@ -297,8 +244,33 @@ h2{font-size:27px;margin:42px 0 7px}.sub{color:#68758a;margin-bottom:18px;line-h
 
 <script>
 let score=0, answered=0;
-function speakText(text){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-AU';u.rate=.92;const voices=speechSynthesis.getVoices();const au=voices.find(v=>/en[-_]AU/i.test(v.lang));if(au)u.voice=au;speechSynthesis.speak(u);}
+const synth=window.speechSynthesis;
+function speak(text){
+  synth.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="en-AU";
+  u.rate=.82;
+  u.pitch=1;
+  u.volume=1;
+  synth.speak(u);
+}
+document.querySelectorAll(".audio").forEach(btn=>{
+  btn.addEventListener("click",()=>speak(btn.dataset.text));
+});
 function answer(btn){const q=btn.closest('.game-q');if(q.dataset.done==='1')return;q.dataset.done='1';answered++;const ok=btn.dataset.correct==='true';q.querySelectorAll('.opt').forEach(b=>{b.disabled=true;if(b.dataset.correct==='true')b.classList.add('correct')});const fb=q.querySelector('.feedback');if(ok){score++;btn.classList.add('correct');fb.textContent='✅ Correct!';}else{btn.classList.add('wrong');fb.textContent='❌ Not quite — look at the green answer.';}document.getElementById('score').textContent=score;}
 function finishGame(){if(answered<20){document.getElementById('final').textContent=`Bạn đã làm ${answered}/20 câu — hoàn thành hết để chấm cuối game!`;return;}let msg=score===20?'🏆 PERFECT!':score>=17?'🔥 Excellent!':score>=14?'👏 Great job!':score>=10?'💪 Keep practising!':'📚 Review the lesson and try again!';document.getElementById('final').textContent=`${msg} ${score}/20`;}
 function resetGame(){score=0;answered=0;document.getElementById('score').textContent='0';document.getElementById('final').textContent='';document.querySelectorAll('.game-q').forEach(q=>{q.dataset.done='0';q.querySelectorAll('.opt').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong')});q.querySelector('.feedback').textContent='';});window.scrollTo({top:document.getElementById('game').offsetTop-20,behavior:'smooth'});}
+const dialogueLines=Array.from(document.querySelectorAll(".dline b")).map(el=>el.textContent);
+document.getElementById("playAll")?.addEventListener("click",()=>{
+  synth.cancel();
+  let i=0;
+  function next(){
+    if(i>=dialogueLines.length)return;
+    const u=new SpeechSynthesisUtterance(dialogueLines[i++]);
+    u.lang="en-AU"; u.rate=.82; u.pitch=1; u.volume=1; u.onend=next;
+    synth.speak(u);
+  }
+  next();
+});
+document.getElementById("stopAll")?.addEventListener("click",()=>synth.cancel());
 </script></body></html>
